@@ -5,7 +5,7 @@ test:
 	. venv/bin/activate ; \
 	$(info -----------------------------------------------------------)
 	pytest -rxXs --tap-stream tests/unit/NgramParser.py  --color=auto --full-trace
-	pytest -rxXs --cov=bigram tests/unit/NgramParser.py
+	pytest -rxXs --cov=ngram tests/unit/NgramParser.py
 
 .PHONY: venv
 venv:
@@ -18,7 +18,7 @@ venv:
 run: venv/bin/activate
 	. venv/bin/activate ; \
 	$(info -----------------------------------------------------------)
-	./bigram.py
+	./ngram.py
 
 .PHONY: clean
 clean:

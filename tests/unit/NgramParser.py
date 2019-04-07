@@ -15,14 +15,14 @@ class TestPackageStructure(unittest.TestCase):
 
   def test_import_NgramParser(self):
     # Arrange
-    from bigram import NgramParser
+    from ngram import NgramParser
 
 
 class TestNgramParser(unittest.TestCase):
 
   def test_ngram_parser(self):
     # Arrange
-    from bigram import NgramParser
+    from ngram import NgramParser
 
     input     = 'The quick brown fox and the quick blue hare.'
     expected  = { 'the quick'   : 2,
