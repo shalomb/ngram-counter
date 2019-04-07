@@ -13,8 +13,7 @@ class NgramParser:
     """
     Parse a string and decompose it into ngrams
     """
-    print(str)
-    pass
+    return str
 
 
 def main():

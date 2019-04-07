@@ -45,3 +45,9 @@ Thumbs.db
 tags
 tmp/
 *.tmp*
+
+# Python
+*.py.tap
+.coverage
+*.egg-info
+__pycache__
