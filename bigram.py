@@ -29,12 +29,18 @@ class NgramParser:
     # Split string by spaces assuming spaces are delimiters
     tokens = klass.normalize(str).split(' ')
 
+    # Compute ngrams
     ngrams = [ ' '.join(pairs) for pairs in
                 zip(*[tokens[i:] for i in [0, 1]])
              ]
 
-    print(ngrams)
-    return ngrams
+    # Count the occurences of each ngram
+    counts = {}
+    for item in ngrams:
+      counts.update({ item: counts[item] + 1 if item in counts else 1 }) # Ugh
+
+    return counts
+
 
 
 def main():
