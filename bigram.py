@@ -26,7 +26,7 @@ class NgramParser:
     return normalized
 
   @classmethod
-  def parse(klass, str):
+  def parse(klass, str, n):
     """
     Parse a string and decompose it into ngrams
     """
@@ -36,7 +36,7 @@ class NgramParser:
 
     # Compute ngrams
     ngrams = [ ' '.join(pairs) for pairs in
-                zip(*[tokens[i:] for i in [0, 1]])
+                zip(*[tokens[i:] for i in range(n)])
              ]
 
     # Count the occurences of each ngram
@@ -53,11 +53,11 @@ class NgramHistogram:
   """
 
   @classmethod
-  def plot(klass, str):
+  def plot(klass, str, n):
     """
     Plot the n-gram histogram
     """
-    bigram = NgramParser.parse(str)
+    bigram = NgramParser.parse(str, n)
 
     # Setup the histogram
     graph = Pyasciigraph( line_length=1,
@@ -74,7 +74,10 @@ class NgramHistogram:
 
 
 def main():
-  NgramHistogram.plot('The quick brown fox and the quick blue hare.')
+  NgramHistogram.plot(
+    str='The quick brown fox and the quick blue hare.',
+    n=2
+  )
 
 if __name__ == '__main__':
   main()

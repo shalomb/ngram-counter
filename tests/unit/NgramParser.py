@@ -35,5 +35,5 @@ class TestNgramParser(unittest.TestCase):
               }
 
     # Act & Assert
-    assert NgramParser.parse(input) == expected
+    assert NgramParser.parse(input, n=2) == expected
 
