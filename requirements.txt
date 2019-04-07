@@ -1,3 +1,4 @@
+ascii_graph
 pytest-tap
 pytest-cov
 pytest

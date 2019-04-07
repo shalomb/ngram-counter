@@ -4,6 +4,11 @@
 
 import re
 
+from ascii_graph import Pyasciigraph
+from ascii_graph.colors import *
+from ascii_graph.colordata import vcolor
+from ascii_graph.colordata import hcolor
+
 class NgramParser:
   """
   Ngram parser utility class
@@ -42,10 +47,34 @@ class NgramParser:
     return counts
 
 
+class NgramHistogram:
+  """
+  Given a string and n for the n-gram, draw a histogram of the occurrences.
+  """
+
+  @classmethod
+  def plot(klass, str):
+    """
+    Plot the n-gram histogram
+    """
+    bigram = NgramParser.parse(str)
+
+    # Setup the histogram
+    graph = Pyasciigraph( line_length=1,
+                          separator_length=4 )
+
+    pattern = [Gre, Yel, Red, Blu]
+    graph_data = vcolor(bigram.items(), pattern)
+
+    print(list(bigram.items()))
+
+    # Render the histogram
+    for line in graph.graph('bigram count', graph_data):
+      print(line)
+
 
 def main():
-  bigram = NgramParser.parse('The quick brown fox and the quick blue hare.')
-
+  NgramHistogram.plot('The quick brown fox and the quick blue hare.')
 
 if __name__ == '__main__':
   main()
