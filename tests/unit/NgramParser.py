@@ -23,11 +23,9 @@ class TestNgramParser(unittest.TestCase):
   def test_ngram_parser(self):
     # Arrange
     from bigram import NgramParser
-    input  = 'The quick brown fox and the quick blue hare.'
+    input   = 'The quick brown fox and the quick blue hare.'
+    output  = 'the quick brown fox and the quick blue hare'
 
-    # Act
-    bigram = NgramParser.parse(input)
-
-    # Assert
-    assert bigram == input
+    # Act & Assert
+    assert NgramParser.parse(input) == output
 

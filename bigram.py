@@ -2,6 +2,7 @@
 
 # -*- coding: utf-8 -*-
 
+import re
 
 class NgramParser:
   """
@@ -9,11 +10,22 @@ class NgramParser:
   """
 
   @classmethod
+  def normalize(klass, str):
+    """
+    Normalize the string to be fed into the parser
+    """
+
+    normalized = str.lower()
+    normalized = re.sub('[^\w\s]', '', normalized)
+
+    return normalized
+
+  @classmethod
   def parse(klass, str):
     """
     Parse a string and decompose it into ngrams
     """
-    return str
+    return klass.normalize(str)
 
 
 def main():
