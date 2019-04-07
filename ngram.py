@@ -29,6 +29,9 @@ class NgramParser:
     # strip out non-word, non-space chars
     normalized = re.sub('[^\w\s]', '', normalized)
 
+    # Remove consequitive duplicate horizontal whitespace to single spaces char
+    normalized = re.sub('\W+', ' ', normalized)
+
     return normalized
 
   @classmethod
@@ -99,7 +102,7 @@ def main():
   args = cli_args()
 
   str = args.text   if args.text else 'The quick brown fox and the quick blue hare.'
-  n   = int(args.n) if args.n    else 2
+  n   = int(args.n) if args.n    else 2   # n=2 for bigrams, n=3 for trigrams, etc
 
   NgramHistogram.plot( str=str, n=n )
 
