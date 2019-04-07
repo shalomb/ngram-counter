@@ -25,7 +25,16 @@ class NgramParser:
     """
     Parse a string and decompose it into ngrams
     """
-    return klass.normalize(str)
+
+    # Split string by spaces assuming spaces are delimiters
+    tokens = klass.normalize(str).split(' ')
+
+    ngrams = [ ' '.join(pairs) for pairs in
+                zip(*[tokens[i:] for i in [0, 1]])
+             ]
+
+    print(ngrams)
+    return ngrams
 
 
 def main():

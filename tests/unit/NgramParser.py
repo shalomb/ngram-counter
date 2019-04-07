@@ -24,7 +24,8 @@ class TestNgramParser(unittest.TestCase):
     # Arrange
     from bigram import NgramParser
     input   = 'The quick brown fox and the quick blue hare.'
-    output  = 'the quick brown fox and the quick blue hare'
+    output  = [ 'the quick', 'quick brown', 'brown fox', 'fox and', 'and the',
+                'the quick', 'quick blue', 'blue hare' ]
 
     # Act & Assert
     assert NgramParser.parse(input) == output
