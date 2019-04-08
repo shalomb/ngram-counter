@@ -1,4 +1,4 @@
-FROM ngram:latest
+FROM debian:buster-slim
 
 LABEL description='Image to run bigram.py'
 
