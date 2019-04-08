@@ -43,6 +43,11 @@ To run `./ngram-plot.py` in a docker container
 
 ```
 make image
+docker run --rm -it ngram /venv/runner /etc/motd
+```
+
+To supply a file on the docker host
+```
 docker run -it -v "$PWD:$PWD" -w "$PWD" ngram /venv/runner --file "$PWD/path/to/some/file"
 ```
 
