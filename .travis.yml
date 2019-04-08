@@ -1,0 +1,20 @@
+---
+
+language: python
+
+python:
+  - "3.5"
+  - "3.6"
+  - "3.7"
+
+install:
+  - pip install -r requirements.txt
+
+stages:
+  - unit-tests
+
+jobs:
+  include:
+
+    - stage:  unit-tests
+      script: pytest -rxXs --tap-stream tests/unit/*.py  --color=auto --full-trace
