@@ -5,8 +5,8 @@ test:
 	$(info -----------------------------------------------------------)
 	. venv/bin/activate ; \
 	sh -c ' \
-		pytest -rxXs --tap-stream tests/unit/NgramParser.py  --color=auto --full-trace; \
-		pytest -rxXs --cov=ngram  tests/unit/NgramParser.py; \
+		pytest -rxXs --tap-stream tests/unit/*.py  --color=auto --full-trace; \
+		pytest -rxXs --cov=ngram  tests/unit/*.py; \
 	'
 
 .PHONY: image
@@ -25,9 +25,9 @@ venv:
 run: venv/bin/activate
 	$(info -----------------------------------------------------------)
 	mkdir -p tmp
-	curl 'https://baconipsum.com/api/?type=meat-and-filler&paras=10&format=text' -o tmp/bacon-ipsum.txt
+	curl 'https://baconipsum.com/api/?type=meat-and-filler&paras=2&format=text' -o tmp/bacon-ipsum.txt
 	. venv/bin/activate ; \
-	./ngram.py --file tmp/bacon-ipsum.txt
+	./ngram-plot.py --file tmp/bacon-ipsum.txt --n 2
 
 .PHONY: clean
 clean:
