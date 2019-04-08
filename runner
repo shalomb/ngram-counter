@@ -1,0 +1,12 @@
+#!/bin/sh
+
+this_dir=$(dirname "$0")
+
+cd "$this_dir"
+
+if [ "$1" = 'make' ]; then
+  "$@"
+else
+  . venv/bin/activate
+  ./ngram.py "$@"
+fi

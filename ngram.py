@@ -89,6 +89,9 @@ class NgramHistogram:
 def cli_args():
   parser = argparse.ArgumentParser(description='n-gram histogram plotter')
 
+  parser.add_argument('--file',     action = 'store',
+      help='File containing text to parse for n-grams')
+
   parser.add_argument('--text',     action = 'store',
       help='Text to parse for n-grams')
 
@@ -101,7 +104,12 @@ def cli_args():
 def main():
   args = cli_args()
 
-  str = args.text   if args.text else 'The quick brown fox and the quick blue hare.'
+  if args.file:
+    with open(args.file) as file:
+      str = file.read()
+  else:
+    str = args.text   if args.text else 'The quick brown fox and the quick blue hare.'
+
   n   = int(args.n) if args.n    else 2   # n=2 for bigrams, n=3 for trigrams, etc
 
   NgramHistogram.plot( str=str, n=n )
