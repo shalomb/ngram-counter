@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/shalomb/ngram-counter.svg?branch=master)](https://travis-ci.org/shalomb/ngram-counter)
+
 ## N-Gram Count Plotter
 
 `ngram-plot.py` is a python utility to plot a histogram of the occurrences of
