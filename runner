@@ -8,5 +8,5 @@ if [ "$1" = 'make' ]; then
   "$@"
 else
   . venv/bin/activate
-  ./ngram.py "$@"
+  ./ngram-plot.py "$@"
 fi
