@@ -1,6 +1,6 @@
 ---
 
-language: generic
+language: python
 
 dist: xenial
 

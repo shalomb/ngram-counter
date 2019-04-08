@@ -16,7 +16,7 @@ image:
 .PHONY: venv
 venv:
 	test -e "$(shell which pip3)" || apt install -y --no-install-recommends --no-install-suggests curl python3-pip python3-venv
-	pip3 install --upgrade --user setuptools wheel virtualenv
+	pip3 install --upgrade setuptools wheel virtualenv
 	python3 -m venv venv
 	. venv/bin/activate ;\
 	pip3 install -Ur requirements.txt
