@@ -2,6 +2,8 @@
 
 language: python
 
+dist: xenial
+
 python:
   - '3.5'
   - '3.6'
@@ -9,15 +11,6 @@ python:
 
 install:
   - pip install -r requirements.txt
-
-stages:
-  - unit-tests
-
-jobs:
-  include:
-
-    - stage:  unit-tests
-      script: pytest -rxXs --tap-stream tests/unit/*.py  --color=auto --full-trace
 
 script:
   - make all
