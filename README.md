@@ -35,7 +35,8 @@ bigram count
 
 ## Testing
 
-Unit tests cover the n-gram parsing logic and are invoked via `pytest`
+Unit tests cover the n-gram parsing and counting logic and are invoked via `pytest`
+using a make target.
 
 ```
 $ make test
@@ -43,25 +44,27 @@ $ make test
 . venv/bin/activate ; \
 
 pytest -rxXs --tap-stream tests/unit/NgramParser.py  --color=auto --full-trace
-1..2
+1..4
 ok 1 tests/unit/NgramParser.py::TestPackageStructure.test_import_NgramParser
-ok 2 tests/unit/NgramParser.py::TestNgramParser.test_ngram_parser
+ok 2 tests/unit/NgramParser.py::TestNgramParser.test_ngram_parser_bigrams
+ok 3 tests/unit/NgramParser.py::TestNgramParser.test_ngram_parser_bigrams_complex
+ok 4 tests/unit/NgramParser.py::TestNgramParser.test_ngram_parser_trigrams
 pytest -rxXs --cov=ngram tests/unit/NgramParser.py
 ================================ test session starts =================================
 platform linux -- Python 3.7.3rc1, pytest-4.4.0, py-1.8.0, pluggy-0.9.0
 rootdir: /home/unop/projects/bigram
 plugins: tap-2.3, cov-2.6.1
-collected 2 items
+collected 4 items
 
-tests/unit/NgramParser.py ..                                                   [100%]
+tests/unit/NgramParser.py ....                                                 [100%]
 
 --------- coverage: platform linux, python 3.7.3-candidate-1 ---------
 Name       Stmts   Miss  Cover
 ------------------------------
-ngram.py      40     16    60%
+ngram.py      41     16    61%
 
 
-============================== 2 passed in 0.03 seconds =============================
+============================== 4 passed in 0.03 seconds ==============================
 ```
 
 ## Deployment
