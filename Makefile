@@ -9,6 +9,10 @@ test:
 		pytest -rxXs --cov=ngram  tests/unit/NgramParser.py; \
 	'
 
+.PHONY: image
+image:
+	docker build -t ngram .
+
 .PHONY: venv
 venv:
 	test -e "$(shell which pip3)" || apt install -y --no-install-recommends --no-install-suggests curl python3-pip python3-venv

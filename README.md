@@ -33,6 +33,13 @@ bigram count
 +++++++++++++++++++++++++                             1    quick brown hare
 ```
 
+To run `./ngram.py` in a docker container
+
+```
+make image
+docker run -it -v "$PWD:$PWD" -w "$PWD" ngram /venv/runner --file "$PWD/path/to/some/file"
+```
+
 ## Testing
 
 Unit tests cover the n-gram parsing and counting logic and are invoked via `pytest`
@@ -75,6 +82,7 @@ into a venv and run tests, etc.
 ```
 make venv   # Setup a venv and install all prerequisites on a clean slate
 make run    # Run ./ngram.py
+make image  # Create a docker image with a venv to run ./ngram.py
 make test   # Run NgramParser unit tests
 make clean  # Clean up workspace and remove venv back to a clean slate
 make all    # Do a complete end-to-end and run all make targets
