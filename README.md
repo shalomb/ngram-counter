@@ -81,5 +81,10 @@ make all    # Do a complete end-to-end and run all make targets
             # i.e. make venv, make test, make run, make clean
 ```
 
-The `Makefile` assumes a linux platform with python3 installed/available.
+The `Makefile` assumes a linux platform with the following installed/available.
 
+* `pip3` (from `python3-pip` or similar)
+* `venv` (from `python3-venv` or similar)
+* `curl`
+
+`make venv` will attempt to install these for a debian-based system/container.
