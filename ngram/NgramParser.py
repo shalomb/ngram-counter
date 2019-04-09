@@ -44,12 +44,8 @@ class NgramParser:
                 zip(*[tokens[i:] for i in range(n)])
              ]
 
-    # Create a dictionary from items in the ngrams list representing each of
-    # the ngrams as keys and whose values are the number of times the item is seen
-    counts = {}
-    for item in ngrams:
-      counts.update({ item: counts[item] + 1 if item in counts else 1 }) # Ugh
-
-    return counts
+    # Create a dictionary from items in the ngrams set representing each of
+    # the ngrams as keys and values being the number of times the item is seen
+    return { item: ngrams.count(item) for item in set(ngrams) }
 
 
