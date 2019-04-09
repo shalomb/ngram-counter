@@ -51,3 +51,4 @@ tmp/
 .coverage
 *.egg-info
 __pycache__
+venv/

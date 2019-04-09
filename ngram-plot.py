@@ -34,7 +34,8 @@ def main():
 
   n   = int(args.n) if args.n    else 2   # n=2 for bigrams, n=3 for trigrams, etc
 
-  NgramHistogram.plot( str=str, n=n )
+  for line in NgramHistogram.plot( str=str, n=n ):
+    print(line)
 
 if __name__ == '__main__':
   main()

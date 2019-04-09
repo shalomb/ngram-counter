@@ -15,7 +15,7 @@ class NgramHistogram:
   """
 
   @classmethod
-  def plot(klass, str, n):
+  def plot(klass, str, n, action='print'):
     """
     Plot the n-gram histogram
     """
@@ -29,9 +29,7 @@ class NgramHistogram:
     pattern = [Gre, Yel, Red, Blu]
     graph_data = vcolor(bigram.items(), pattern)
 
-    print(list(bigram.items()))
-
-    # Render the histogram
+    # Yield the histogram
     for line in graph.graph('bigram count', graph_data):
-      print(line)
+      yield(line)
 
