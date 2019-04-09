@@ -59,44 +59,44 @@ Unit tests cover the n-gram parsing and counting logic and are invoked via `pyte
 using a make target.
 
 ```
- $ make test
+$ make test
 -----------------------------------------------------------
 . venv/bin/activate ; \
 sh -c ' \
-        pytest -rxXs --tap-stream tests/unit/*.py  --color=auto --full-trace; \
-        pytest -rxXs --cov=ngram  tests/unit/*.py; \
+        pytest -rxXs --tap-stream tests/*/*.py  --color=auto --full-trace; \
+        pytest -rxXs --cov=ngram  tests/*/*.py; \
 '
-1..6
-ok 1 tests/unit/NgramHistogram.py::TestPackageStructure.test_import_NgramHistogram
-ok 2 tests/unit/NgramHistogram.py::TestNgramHistogram.test_ngram_Histogram
+1..7
+ok 1 tests/integration/NgramHistogram.py::TestPackageStructure.test_import_NgramHistogram
+ok 2 tests/integration/NgramHistogram.py::TestNgramHistogram.test_ngram_Histogram
 ok 3 tests/unit/NgramParser.py::TestPackageStructure.test_import_NgramParser
 ok 4 tests/unit/NgramParser.py::TestNgramParser.test_ngram_parser_bigrams
 ok 5 tests/unit/NgramParser.py::TestNgramParser.test_ngram_parser_bigrams_complex
 ok 6 tests/unit/NgramParser.py::TestNgramParser.test_ngram_parser_trigrams
-================================= test session starts =================================
+ok 7 tests/unit/NgramParser.py::TestNgramParser.test_normalize
+=================================== test session starts ====================================
 platform linux -- Python 3.7.3rc1, pytest-4.4.0, py-1.8.0, pluggy-0.9.0
 rootdir: /home/unop/projects/bigram
 plugins: tap-2.3, cov-2.6.1
-collected 6 items
+collected 7 items
 
-tests/unit/NgramHistogram.py ..                                                 [ 33%]
-tests/unit/NgramParser.py ....                                                  [100%]
+tests/integration/NgramHistogram.py ..                                               [ 28%]
+tests/unit/NgramParser.py .....                                                      [100%]
 
-================================== warnings summary ===================================
-tests/unit/NgramHistogram.py::TestNgramHistogram::test_ngram_Histogram
+===================================== warnings summary =====================================
+tests/integration/NgramHistogram.py::TestNgramHistogram::test_ngram_Histogram
 ...
-
 
 --------- coverage: platform linux, python 3.7.3-candidate-1 ---------
 Name                      Stmts   Miss  Cover
 ---------------------------------------------
 ngram/NgramHistogram.py      14      0   100%
-ngram/NgramParser.py         15      0   100%
+ngram/NgramParser.py         13      0   100%
 ngram/__init__.py             2      0   100%
 ---------------------------------------------
-TOTAL                        31      0   100%
+TOTAL                        29      0   100%
 
-======================== 6 passed, 1 warnings in 0.04 seconds =========================
+=========================== 7 passed, 1 warnings in 0.04 seconds =======================
 ```
 
 ## Deployment
