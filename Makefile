@@ -5,8 +5,8 @@ test:
 	$(info -----------------------------------------------------------)
 	. venv/bin/activate ; \
 	sh -c ' \
-		pytest -rxXs --tap-stream tests/unit/*.py  --color=auto --full-trace; \
-		pytest -rxXs --cov=ngram  tests/unit/*.py; \
+		pytest -rxXs --tap-stream tests/*/*.py  --color=auto --full-trace; \
+		pytest -rxXs --cov=ngram  tests/*/*.py; \
 	'
 
 .PHONY: image
@@ -32,6 +32,7 @@ run: venv/bin/activate
 .PHONY: clean
 clean:
 	rm -fr ./venv/ __pycache__/ *.egg-info/ .coverage *.tap .pytest_cache tmp/bacon-ipsum.txt
+	find . -type d -iname "__pycache__" -exec rm -r {} +
 
 .PHONY: all
 all: venv test run clean
