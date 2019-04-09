@@ -24,6 +24,22 @@ class TestPackageStructure(unittest.TestCase):
 
 class TestNgramParser(unittest.TestCase):
 
+  def test_normalize(self):
+    """
+    Test the normalize method
+    """
+
+    # Arrange
+    from ngram import NgramParser
+
+    input    = 'The quick brown fox and the quick blue hare.'
+    expected = [ 'the', 'quick', 'brown', 'fox', 'and', 'the', 'quick',
+                 'blue', 'hare' ]
+
+    # Act & Assert
+    assert NgramParser.normalize(input) == expected
+
+
   def test_ngram_parser_bigrams(self):
     """
     Test the parser's ability to handle the base/given case.
@@ -44,6 +60,7 @@ class TestNgramParser(unittest.TestCase):
 
     # Act & Assert
     assert NgramParser.parse(input, n) == expected
+
 
   def test_ngram_parser_bigrams_complex(self):
     """
